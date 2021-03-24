@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lightfrom</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="assets/logo.png" alt="" width="40" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Summary</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Amazon Tools <i class="ms-1 fa fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Warehouse Inventory <i class="ms-1 fa fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <ul class="d-flex avatar ms-auto mb-2 mb-lg-0">
+                <a href="#">
+                    <img src="assets/notifications.svg" alt="notifications" />
+                </a>
+                <li class="navbar-text">
+                    <p class="nav-link active m-0 fw-bold avatar-name">Monica Simons</p>
+                </li>
+                <a class="navbar-nav active my-auto d-inline dropdown dropstart" href="#" id="navbarDropdown3"
+                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="assets/avatar.svg" alt="avatar" /> <i class="ms-2 fa fa-chevron-down"></i>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Help</a></li>
+                    </ul>
+                </a>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- dashboard-->
+<div class="container-fluid p-0">
+    <div class="dashboard">
+        <span class="setting">Settings / <b>Warehouse</b></span>
+
+        <div class="row-one">
+            <div class="row-one-col d-flex">
+                <h2 class="fw-bold mb-0 me-5">Create shipment</h2>
+                
+                <div class="form-group has-search me-2 search-one">
+                    <span class="fa fa-search form-control-feedback"></span>
+                    <input type="search" class="form-control" placeholder="Search by Name, Brand etc.">
+                </div>
+
+                <div class="form-group has-search me-2 search-two">
+                    <span class="fa fa-search form-control-feedback"></span>
+                    <input type="search" class="form-control" placeholder="Shipment Name">
+                </div>
+
+                <!-- <input class="form-control me-2 search-one" type="search" placeholder="Search by Name, Brand etc."
+                    aria-label="Search"> -->
+                <!-- <input class="form-control me-2 search-two" type="search" placeholder="Shipment Name"
+                    aria-label="Search"> -->
+
+                <div class="plus-btn position-relative" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <img class="position-absolute" src="assets/plus.png" alt="plus"/>
+                    <button type="button" class="btn product-btn">New Product</button>
+                </div>
+                <button type="button" class="btn save-shipment-btn">Save Shipment</button>
+                <button type="button" class="btn delete-btn">Delete</button>
+                <button type="button" class="btn check-in-btn">Check in</button>
+            </div>
+        </div>
+
+        <div class="row-two">
+            <div class="row-two-col d-flex">
+                <img class="row-two-img" src="assets/Company-name.png" alt="Company-name" />
+                <div class="company-name company-style">
+                    <span class="fw-bold ">Company name</span>
+                    <p>Abstergo Ltd.</p>
+                </div>
+                <div class="company-address company-style">
+                    <span class="fw-bold">Address</span>
+                    <p>USA 3891 Ranchview Dr. Richardson, California 62639</p>
+                </div>
+
+                <img class="row-two-img" src="assets/phone.png" alt="phone" />
+                <div class="company-name company-style">
+                    <span class="fw-bold ">Phone</span>
+                    <p>(308) 555-0121</p>
+                </div>
+                <div class="company-address company-style">
+                    <span class="fw-bold">Fax</span>
+                    <p>333-333-3333</p>
+                </div>
+
+                <img class="row-two-img" src="assets/web.png" alt="web" />
+                <div class="company-name company-style">
+                    <span class="fw-bold ">Web</span>
+                    <p>www.konmatfix.com</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  TABLE -->
+<div class="container-fluid p-0">
+    <div class="main-table">
+        <div class="table-header">
+        
+            <div class="config d-flex position-relative">
+                <div class="my-auto mx-0">
+                    <h5>Table</h5>
+                </div>
+                <div class="position-absolute end-0 d-flex">
+                    <button type="button" class="btn config-btn">Save Config</button>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Show: 10</option>
+                        <option value="1">Show: 20</option>
+                        <option value="2">Show: 30</option>
+                        <option value="3">Show: 40</option>
+                      </select>
+                </div>
+            </div>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Merchant SKU</th>
+                    <th scope="col">barcode</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Packing</th>
+                    <th scope="col">Box weight</th>
+                    <th scope="col">Box size</th>
+                    <th scope="col">CBM</th>
+                    <th scope="col">Number per case</th>
+                    <th scope="col">Number of cases</th>
+                    <th scope="col">Total items</th>
+                    <th scope="col">Total CBM</th>
+                    <th scope="col">Total weight</th>
+                    <th scope="col"><img src="assets/actions.png" alt="action"/></th>
+                </tr>
+            </thead>
+
+            <tbody class="table_body">
+                <tr>
+                    <th scope="row" class="merchant">70-2F63-EDZ9</th>
+                    <td class="barcode">XXXX</td>
+                    <td class="product">
+                        <div class="d-flex photo-col">
+                            <img class="photo" src="assets/photo.png" alt="photo"/>
+                            <span>Wyze Cam 1080p HD WiFi Smart Home Camera with Night Vision, 2-Way Audio, Works with Alexa Smart Home  </span>
+                        </div>
+                    </td>
+                    <td class="packing table-row-style">PP</td>
+                    <td class="box-width table-row-style">20.5</td>
+                    <td class="box-size table-row-style">30*40*50</td>
+                    <td class="cbm table-row-style">0.06</td>
+                    <td class="no-per-case">
+                        <div class="no-code">
+                            <span>30</span>
+                            <img class="no-code-img" src="assets/no-code.png" alt="no-code"/>
+                        </div>
+                    </td>
+                    <td class="no-of-case">
+                        <input type="text" value="2.00">
+                    </td>
+                    <td class="total-item table-row-style">127</td>
+                    <td class="total-cbm table-row-style">127</td>
+                    <td class="toatl-weight table-row-style">61.5</td>
+                    <td class="tresh-col">
+                        <img class="trash" src="assets/trash.png" alt="trash"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- modal -->
+    <div class="modal fade add-product" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header border-0">
+              <h5 class="modal-title" id="staticBackdropLabel">Add products</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="product-inner">
+                    <div class="form-group has-search product-search">
+                        <span class="fa fa-search form-control-feedback"></span>
+                        <input type="search" class="form-control" placeholder="Enter title, merchant SK or ASIN ">
+                    </div>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <div class="form-check custom-checkbox">
+                                    <input class="form-check-input custom-control-input" type="checkbox" name="flexCheckDefault" value="1" id="flexCheckDefault">
+                                    <label class="custom-control-label" for="package-area-0"></label>
+                                </div>
+                            </th>
+                            <th scope="col pt-2">Merchant SKU</th>
+                            <th scope="col">barcode</th>
+                            <th scope="col">Product</th>
+                            <th scope="col position-relative">
+                                <button type="button" class="btn add-all position-absolute">Add All</button>
+                            </th>
+                        </tr>
+                    </thead>
+        
+                    <tbody class="table_body_modal">
+                        <tr>
+                            <th scope="row" class="merchant">
+                                <div class="form-check">
+                                    <input class="form-check-input table-check-box" type="checkbox" value="">
+                                </div>
+                            </th>
+                            <th class="merchant">70-2F63-EDZ9</th>
+                            <td class="barcode">XXXX</td>
+                            <td class="product">
+                                <div class="d-flex photo-col">
+                                    <img class="photo" src="assets/photo.png" alt="photo"/>
+                                    <span>Wyze Cam 1080p HD WiFi Smart Home Camera with Night Vision, 2-Way Audio, Works with Alexa Smart Home  </span>
+                                </div>
+                            </td>
+                            <td class="box-width table-row-style position-relative">
+                                <button type="button" class="btn add-product-btn position-absolute">Add Product</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer border-0 position-relative">
+                <span class="position-absolute page-info">1-10 of 195 items</span>
+                <div class="d-flex">
+                    <img class="position-relative left-chevron" src="assets/btn_Chevron Left.png"/>
+                    <div class="numbers position-relative">
+                        <span>1</span>
+                        <span>2</span>
+                        <img src="assets/Page.png"/>
+                        <span>19</span>
+                    </div>
+                    <img class="position-relative right-chevron" src="assets/btn_Chevron Right.png"/>
+
+                    <input type="number" id="quantity" name="quantity" min="1" value="10">
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>
+
+</html>
+<script>
+    let tableRow = $('.table_body').html()
+    let tableRowModal = $('.table_body_modal').html()
+
+    for (i = 0; i < 9; i++) {
+        $(".table_body").append(tableRow);
+    }
+
+    for (i = 0; i < 4; i++) {
+        $(".table_body_modal").append(tableRowModal);
+    }
+
+    $('#flexCheckDefault').on('change', function() { 
+        if (this.checked) {
+            $('.table-check-box').prop('checked', true);
+        } else {
+            $('.table-check-box').prop('checked', false);
+        }
+    })
+</script>
