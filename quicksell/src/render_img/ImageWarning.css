@@ -1,0 +1,78 @@
+.mainContainer {
+    height: 200px;
+    width: 800px;
+    display: flex;
+    background-color: black;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.first img, .second img {
+    width: 52px;
+    height: 52px;
+    border-radius: 99px;
+}
+
+.first {
+    display: flex;
+    position: relative;
+    z-index: 999;
+    top: 36px;
+}
+
+.second {
+    position: absolute;
+    top: 120px;
+}
+
+header {
+	padding: 0 15px;
+}
+
+.columns {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	margin: 5px 0;
+    width: 100%;
+}
+
+.column {
+	flex: 1;
+	padding: 10px;
+}
+
+.text h2 {
+    font-size: 30px;
+    color: white;
+}
+
+.text  h4 {
+    font-size: 22px;
+    color: white;
+    margin: 0;
+}
+
+.text {
+    min-width: 50%;
+}
+
+.first-col {
+    max-width: 120px;
+}
+
+.last {
+    margin: auto;
+}
+
+.placeholder {
+    height: 52px;
+    width: 53px;
+    border-radius: 99px;
+    position: absolute;
+    top: 0px;
+    left: 52px;
+    border: 2px dotted white;
+    background-color: lightgrey;
+}
+
