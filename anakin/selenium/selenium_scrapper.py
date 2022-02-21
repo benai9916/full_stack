@@ -87,6 +87,6 @@ while has_more == True:
         has_more = False
 
 main_df.reset_index(drop=True)
-# main_df.to_csv('selenium_restaurant_latlng.csv')
+main_df.to_csv('selenium_restaurant_latlng.csv')
 
 driver.quit()
