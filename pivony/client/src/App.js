@@ -10,8 +10,6 @@ import Graphs from "./components/Graph"
 import { fetchWeatherData } from "./services/api"
 
 const copy = (source, destination, droppableSource, droppableDestination) => {
-  // const sourceClone = Array.from(source);
-  // const destClone = Array.from(destination);
   const item = source[droppableSource.index];
 
   destination.splice(droppableDestination.index, 0, { ...item, id: uuid() });
