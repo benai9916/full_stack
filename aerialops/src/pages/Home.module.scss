@@ -1,0 +1,82 @@
+.main {
+  position: relative;
+  .chat_wrapper {
+    width: 360px;
+    box-shadow: 7px 0px 41px -1px rgba(0,0,0,0.35);
+    border-radius: 10px;
+    height: 600px;
+    overflow-y: auto;
+    margin: 6% auto 0;
+    .chat_inner_window {
+      background-color: linen;
+      height: 83%;
+      padding: 20px;
+      overflow-y: auto;
+      .uploaded_img {
+        height: 100px;
+        width: 260px;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+      .text_wrap {
+        margin: 24px 0 0;
+        background-color: white;
+        padding: 8px 12px;
+        border-radius: 16px;
+        display: inline-block;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      p {
+        margin: 2px 0 3px;
+        font-size: 16px;
+        line-height: 20px;
+        font-family: Montserrat,sans-serif;
+      }
+      span {
+        margin: 4px 0 0 4px;
+        display: block;
+        font-size: 10px;
+        color: black;
+        font-family: Montserrat,sans-serif;
+      }
+    }
+  }
+  .input_wrapper {
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+
+    .input_message {
+      height: 36px;
+      border-radius: 6px;
+      border: 1px solid black;
+      padding: 0 10px;
+      width: 186px;
+    }
+    .send {
+      height: 37px;
+      border-radius: 6px;
+      width: 60px;
+      border: none;
+      background: #009fd6;
+      cursor: pointer;
+    }
+    input[type="file"] {
+      display: none;
+    }
+    .attach_img {
+      height: 30px;
+    }
+    .custom_file {
+      border: 1px solid black;
+      border-radius: 6px;
+      display: inline-block;
+      padding: 1px 10px;
+      cursor: pointer;
+      position: relative;
+      top: 8px;
+      margin: 0 8px;
+    }
+  }
+}
