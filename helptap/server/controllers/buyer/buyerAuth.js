@@ -29,14 +29,9 @@ const signUp = async (req, res) => {
         process.env.SECRET_KEY,
         { expiresIn: "1h" }
       );
-      res.cookie("token", token, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-      });
-      return res
-        .status(200)
-        .json(success("Successfully registered.", res.statusCode));
+
+      return res.cookie("token", token, {httpOnly: true, secure: true,
+        sameSite: "none"}).json(success("Successfully registered", res.statusCode, addBuyer));
     }
   } catch (err) {
     res
@@ -57,7 +52,7 @@ const login = async (req, res) => {
     });
     if (!buyer) {
       return res
-        .status(200)
+        .status(400)
         .json(error("User does not exists", res.statusCode));
     } else {
       // log user in
@@ -66,14 +61,9 @@ const login = async (req, res) => {
         process.env.SECRET_KEY,
         { expiresIn: "1h" }
       );
-      res.cookie("token", token, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-      });
-      return res
-        .status(200)
-        .json(success("Successfully logged in.", res.statusCode));
+
+      return res.cookie("token", token, {httpOnly: true, secure: true,
+        sameSite: "none"}).json(success("Successfully logged in", res.statusCode, buyer));
     }
   } catch (err) {
     res

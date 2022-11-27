@@ -84,9 +84,10 @@ const addBook = async (req, res) => {
       sellerExistError(req, res);
     }
   } catch (err) {
+    console.log(err)
     res
       .status(500)
-      .json(success("Something went wrong, please try again.", res.statusCode));
+      .json(error("Something went wrong, please try again.", res.statusCode));
   }
 };
 
@@ -105,7 +106,7 @@ const getBook = async (req, res) => {
   } catch (err) {
     res
       .status(500)
-      .json(success("Something went wrong, please try again.", res.statusCode));
+      .json(error("Something went wrong, please try again.", res.statusCode));
   }
 };
 
@@ -116,6 +117,18 @@ const getOrderDetail = async (req, res) => {
     if (seller) {
       let orderDetails = await prisma.order.findMany({
         where: { sellerId: Number(sellerId) },
+        include: {
+          buyer: {
+            select: {
+              buyerName: true
+            }
+          },
+          books: {
+            select:{
+              bookName: true
+            }
+          }
+        }
       });
       return res
         .status(200)
@@ -124,10 +137,10 @@ const getOrderDetail = async (req, res) => {
       sellerExistError(req, res);
     }
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res
       .status(500)
-      .json(success("Something went wrong, please try again.", res.statusCode));
+      .json(error("Something went wrong, please try again.", res.statusCode));
   }
 };
 
@@ -143,9 +156,12 @@ const getSeller = async (req, res) => {
       const sellerDeatil = await prisma.seller.findFirst({
         where: { id: Number(sellerId) },
         include: {
-          shop: true,
-          books: true,
-          order: true,
+          shop: {
+            select: {
+              id: true,
+              shopName: true,
+            },
+          },
         },
       });
       return res
@@ -157,7 +173,7 @@ const getSeller = async (req, res) => {
   } catch (err) {
     res
       .status(500)
-      .json(success("Something went wrong, please try again.", res.statusCode));
+      .json(error("Something went wrong, please try again.", res.statusCode));
   }
 };
 

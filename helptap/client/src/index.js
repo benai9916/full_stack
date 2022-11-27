@@ -1,13 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.scss";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { Provider } from "react-redux";
+import store from '../src/store'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    background: '#1A2027'
+  },
+});
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={darkTheme}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

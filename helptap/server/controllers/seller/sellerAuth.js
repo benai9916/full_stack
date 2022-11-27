@@ -32,14 +32,9 @@ const signUp = async (req, res) => {
         process.env.SECRET_KEY,
         { expiresIn: "1h" }
       );
-      res.cookie("token", token, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-      });
-      return res
-        .status(200)
-        .json(success("Successfully registered seller", res.statusCode));
+
+      return res.cookie("token", token, {httpOnly: true, secure: true,
+        sameSite: "none"}).json(success("Successfully registered", res.statusCode, addSeller));
     }
   } catch (err) {
     res
@@ -68,14 +63,9 @@ const login = async (req, res) => {
         process.env.SECRET_KEY,
         { expiresIn: "1h" }
       );
-      res.cookie("token", token, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-      });
-      return res
-        .status(200)
-        .json(success("Successfully logged in.", res.statusCode));
+
+      return res.cookie("token", token, {httpOnly: true, secure: true,
+        sameSite: "none"}).json(success("Successfully logged in.", res.statusCode, seller));
     }
   } catch (err) {
     res
