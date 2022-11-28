@@ -44,7 +44,6 @@ const AddBooks = (props) => {
   };
 
   const handleSubmit = (e) => {
-    console.log(value);
     if (e) e.preventDefault();
     if (!value.stockCount) {
       setErros({ stockCount: "Please enter count" });
