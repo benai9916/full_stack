@@ -4,6 +4,7 @@
   "description": "bookfair app",
   "main": "index.js",
   "scripts": {
+    "build": "npx prisma generate & nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "benai",
