@@ -76,6 +76,7 @@ const login = async (req, res) => {
         .json(success("Successfully logged in", res.statusCode, buyer));
     }
   } catch (err) {
+    console.log(err)
     res
       .status(500)
       .json(success("Something went wrong, please try again.", res.statusCode));
