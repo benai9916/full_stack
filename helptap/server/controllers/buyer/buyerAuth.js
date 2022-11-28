@@ -30,8 +30,13 @@ const signUp = async (req, res) => {
         { expiresIn: "1h" }
       );
 
-      return res.cookie("token", token, {httpOnly: true, secure: true,
-        sameSite: "none"}).json(success("Successfully registered", res.statusCode, addBuyer));
+      return res
+        .cookie("token", token, {
+          httpOnly: true,
+          secure: true,
+          sameSite: "none",
+        })
+        .json(success("Successfully registered", res.statusCode, addBuyer));
     }
   } catch (err) {
     res
@@ -62,9 +67,31 @@ const login = async (req, res) => {
         { expiresIn: "1h" }
       );
 
-      return res.cookie("token", token, {httpOnly: true, secure: true,
-        sameSite: "none"}).json(success("Successfully logged in", res.statusCode, buyer));
+      return res
+        .cookie("token", token, {
+          httpOnly: true,
+          secure: true,
+          sameSite: "none",
+        })
+        .json(success("Successfully logged in", res.statusCode, buyer));
     }
+  } catch (err) {
+    res
+      .status(500)
+      .json(success("Something went wrong, please try again.", res.statusCode));
+  }
+};
+
+const logout = (req, res) => {
+  try {
+    res
+      .clearCookie("token", "", {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        expires: new Date(0),
+      })
+      .json(success("Successfully logged out", res.statusCode));
   } catch (err) {
     res
       .status(500)
@@ -75,4 +102,5 @@ const login = async (req, res) => {
 module.exports = {
   signUp,
   login,
+  logout,
 };

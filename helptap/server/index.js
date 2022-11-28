@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 
 // local import
+const { logout } =  require("./controllers/buyer/buyerAuth");
 const sellerRoute = require("./routes/sellerRoute");
 const buyerRouter = require("./routes/buyerRoute");
 
@@ -30,3 +31,7 @@ app.get("/", (req, res) => {
 // routes
 app.use("/seller", sellerRoute);
 app.use("/", buyerRouter);
+// logout
+app.get('/logout', (req, res) => {
+  logout(req, res)
+})

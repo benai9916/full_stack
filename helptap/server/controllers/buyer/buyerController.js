@@ -124,7 +124,7 @@ const getOrder = async (req, res) => {
       select: {
         order: {
           select: {
-            id:true,
+            id: true,
             books: {
               select: {
                 bookName: true,
@@ -188,6 +188,62 @@ const getBuyer = async (req, res) => {
   }
 };
 
+const searchBooks = async (req, res) => {
+  const search = req.query.search;
+  try {
+    const bookResult = await prisma.books.findMany({
+      where: {
+        bookName: {
+          contains: search,
+        },
+      },
+      select: {
+        id: true,
+        bookName: true,
+        seller: {
+          select: {
+            sellerName: true,
+          },
+        },
+      },
+    });
+    return res.status(200).json(success("Success", res.statusCode, bookResult));
+  } catch (err) {
+    res
+      .status(500)
+      .json(success("Something went wrong, please try again.", res.statusCode));
+  }
+};
+
+const searchSeller = async (req, res) => {
+  const search = req.query.search;
+  try {
+    const sellerResult = await prisma.seller.findMany({
+      where: {
+        sellerName: {
+          contains: search,
+        },
+      },
+      select: {
+        id: true,
+        sellerName: true,
+        shop: {
+          select: {
+            shopName: true,
+          },
+        },
+      },
+    });
+    return res
+      .status(200)
+      .json(success("Success", res.statusCode, sellerResult));
+  } catch (err) {
+    res
+      .status(500)
+      .json(success("Something went wrong, please try again.", res.statusCode));
+  }
+};
+
 module.exports = {
   getAllSellers,
   getBuyer,
@@ -195,4 +251,6 @@ module.exports = {
   getBookBySellerId,
   placeOrder,
   getOrder,
+  searchBooks,
+  searchSeller,
 };

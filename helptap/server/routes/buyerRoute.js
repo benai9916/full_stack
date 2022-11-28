@@ -14,5 +14,7 @@ buyerRoute.get('/sellers/:sellerId/books', auth, buyer.getBookBySellerId)
 buyerRoute.get('/buyer/:buyerId', auth, buyer.getBuyer)
 buyerRoute.post('/buyer/:buyerId/order', auth, buyer.placeOrder)
 buyerRoute.get('/buyer/:buyerId/order', auth, buyer.getOrder)
+buyerRoute.get('/search/books', auth, buyer.searchBooks)
+buyerRoute.get('/search/seller', auth, buyer.searchSeller)
 
 module.exports = buyerRoute
