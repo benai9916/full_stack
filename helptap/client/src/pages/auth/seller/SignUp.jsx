@@ -27,6 +27,7 @@ const SignUp = (props) => {
   useEffect(() => {
     setLoading(isLoading)
     if(!isError && data?.id) {
+      localStorage.setItem('id', data?.id)
       navigate(`/seller/${data?.id}`)
     }
   }, [isLoading, isError, data])

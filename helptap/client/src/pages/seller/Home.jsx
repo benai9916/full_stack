@@ -13,7 +13,9 @@ const SellerHome = (props) => {
   const dispatch = useDispatch();
   const { sellerId } = useParams();
   const [shopNames, setShopName] = useState({});
-  const { isLoading, isError, profile, shopName } = useSelector((state) => state.seller);
+  const { isLoading, isError, profile, shopName } = useSelector(
+    (state) => state.seller
+  );
 
   useEffect(() => {
     dispatch(sellerProfile(sellerId));
@@ -25,13 +27,12 @@ const SellerHome = (props) => {
     if (!shopNames.shopName) {
       toast.error("Please enter shop name", { id: "shop-name" });
     } else {
-      let data = {...shopNames, ['sellerId']: sellerId}
-      dispatch(addShopName(data))
+      let data = { ...shopNames, ["sellerId"]: sellerId };
+      dispatch(addShopName(data));
       setLoading(isLoading);
     }
   };
 
-  console.log(shopName);
   return (
     <>
       {!isLoading && !isError && profile?.data !== undefined && (

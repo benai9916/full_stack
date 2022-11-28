@@ -11,14 +11,16 @@ const ListBooks = (props) => {
   const { setLoading } = props;
   const dispatch = useDispatch();
   const { sellerId } = useParams();
-  const { isLoading, isError, booksList } = useSelector((state) => state.seller);
+  const { isLoading, isError, booksList } = useSelector(
+    (state) => state.seller
+  );
 
   useEffect(() => {
     dispatch(getBook(sellerId));
     setLoading(isLoading);
-  }, []);
+    // eslint-disable-next-line
+  }, []); 
 
-  console.log(booksList);
   return (
     <>
       {!isLoading && !isError && booksList && (

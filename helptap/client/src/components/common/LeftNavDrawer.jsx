@@ -1,5 +1,5 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
+import { Box, Badge } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 import AppBar from "@mui/material/AppBar";
@@ -10,6 +10,7 @@ import Divider from "@mui/material/Divider";
 import AutoStoriesTwoToneIcon from "@mui/icons-material/AutoStoriesTwoTone";
 import { Outlet, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 // local
 import { BUYER, SELLER } from "constants";
 import LeftNavLink from "./LeftNavLink";
@@ -17,26 +18,25 @@ import { sellerProfile } from "store/slices/sellerSlice";
 
 const drawerWidth = 240;
 
-export const PermanentDrawerLeft = ({ clientType}) => {
+export const PermanentDrawerLeft = ({ clientType }) => {
   const dispatch = useDispatch();
-  const {id} = useSelector((state) => state.auth?.data)
+  const { id } = useSelector((state) => state.auth?.data);
   const { shopName } = useSelector((state) => state.seller);
-  const { buyerId: buyerIds}  = useSelector((state) => state.buyer);
+  const { buyerId: buyerIds, cart } = useSelector((state) => state.buyer);
   let { sellerId, buyerId } = useParams();
-
+  let ids = localStorage.getItem("id");
 
   React.useEffect(() => {
-    if(!shopName && clientType === SELLER){
+    if (!shopName && clientType === SELLER) {
       dispatch(sellerProfile(sellerId));
-    } 
-  }, [])
+    }
+  }, []);
 
-  if(clientType === BUYER) {
-    if (!buyerId) buyerId = id || buyerIds
+  if (clientType === BUYER) {
+    if (!buyerId) buyerId = id || buyerIds || ids;
   } else {
-    if (!sellerId) sellerId = id
+    if (!sellerId) sellerId = id || ids;
   }
-
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -45,7 +45,7 @@ export const PermanentDrawerLeft = ({ clientType}) => {
         position="fixed"
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
       >
-        <Toolbar>
+        <Toolbar sx={{ opacity: 1, zIndex: 111111 }}>
           <Typography
             variant="h6"
             noWrap
@@ -87,7 +87,11 @@ export const PermanentDrawerLeft = ({ clientType}) => {
           {clientType === BUYER && (
             <>
               <LeftNavLink path={`/buyer/${buyerId}`} text="Home" />
-              <LeftNavLink path={`/buyer/${buyerId}/cart`} text="Cart" />
+              <LeftNavLink path={`/buyer/${buyerId}/cart`} text="Cart">
+                <Badge badgeContent={cart.length} color="warning">
+                  <ShoppingCartIcon color="action" />
+                </Badge>
+              </LeftNavLink>
               <LeftNavLink path={`/sellers`} text="Sellers" />
               <LeftNavLink path={`/buyer/${buyerId}/order`} text="Order" />
             </>
@@ -97,10 +101,19 @@ export const PermanentDrawerLeft = ({ clientType}) => {
               <LeftNavLink path={`/seller/${sellerId}`} text="Home" />
               {shopName && (
                 <>
-              <LeftNavLink path={`/seller/${sellerId}/books`} text="Book List" />
-              <LeftNavLink path={`/seller/${sellerId}/books/new`} text="Add Books" />
-              <LeftNavLink path={`/seller/${sellerId}/orders`} text="Orders" />
-              </>
+                  <LeftNavLink
+                    path={`/seller/${sellerId}/books`}
+                    text="Book List"
+                  />
+                  <LeftNavLink
+                    path={`/seller/${sellerId}/books/new`}
+                    text="Add Books"
+                  />
+                  <LeftNavLink
+                    path={`/seller/${sellerId}/orders`}
+                    text="Orders"
+                  />
+                </>
               )}
             </>
           )}

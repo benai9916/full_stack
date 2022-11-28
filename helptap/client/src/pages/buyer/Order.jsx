@@ -18,7 +18,7 @@ const Order = (props) => {
     dispatch(getOrderDetail(buyerId));
     setLoading(isLoading);
   }, []);
-  console.log(ordersDetails[0].order.length);
+
   return (
     <>
       {!isLoading && !isError && ordersDetails && (
@@ -58,10 +58,10 @@ const Order = (props) => {
                           Book Name
                         </Typography>
                         <Typography variant="h6" gutterBottom>
-                          Buyer Name
+                          Seller Name
                         </Typography>
                       </Paper>
-                      {ordersDetails?.map((order, i) => (
+                      {ordersDetails[0]?.order?.map((order, i) => (
                         <Paper
                           key={i}
                           sx={{
@@ -73,13 +73,13 @@ const Order = (props) => {
                           }}
                         >
                           <Typography variant="subtitle1" gutterBottom>
-                            {order?.bookId}
+                            {order?.id}
                           </Typography>
                           <Typography variant="subtitle1" gutterBottom>
                             {order?.books?.bookName}
                           </Typography>
                           <Typography variant="subtitle1" gutterBottom>
-                            {order?.buyer?.buyerName}
+                            {order?.seller?.sellerName}
                           </Typography>
                         </Paper>
                       ))}

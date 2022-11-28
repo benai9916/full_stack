@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { Box, Grid, Typography, Button, Paper, Stack } from "@mui/material";
+import { Box, Grid, Typography, Paper, Stack } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 // local
 import LoadingHOC from "components/common/LoadingHOC";
 import { getOrderDetail } from "store/slices/sellerSlice";
@@ -19,7 +18,7 @@ const ListOrders = (props) => {
     dispatch(getOrderDetail(sellerId));
     setLoading(isLoading);
   }, []);
-  console.log(ordersDetails);
+
   return (
     <>
       {!isLoading && !isError && ordersDetails && (

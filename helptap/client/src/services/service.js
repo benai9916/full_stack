@@ -38,8 +38,8 @@ class ApiService {
   getBookBySellerId(sellerId) {
     return http.get(`/sellers/${sellerId}/books`);
   }
-  placeOrder(buyerId) {
-    return http.post(`/buyer/${buyerId}/order`);
+  placeOrder(data, buyerId) {
+    return http.post(`/buyer/${buyerId}/order`, data);
   }
   getOrder(buyerId) {
     return http.get(`/buyer/${buyerId}/order`);
