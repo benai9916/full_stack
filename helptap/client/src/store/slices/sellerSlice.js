@@ -37,7 +37,6 @@ export const getBook = createAsyncThunk("seller/getBook", async (data, { rejectW
 export const addBook = createAsyncThunk("seller/addBook", async (data, { rejectWithValue }) => {
   try {
     let {sellerId} = data
-    delete data?.sellerId;
     const response = await ApiService.addBook(data, sellerId);
     if(response?.data) {
       toast.success('Book add successfully', { id: 'gs3HShhdS6jdgH' })

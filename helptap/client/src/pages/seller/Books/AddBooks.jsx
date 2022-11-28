@@ -10,7 +10,7 @@ import { addBook, getBook } from "store/slices/sellerSlice";
 const AddBooks = (props) => {
   const { setLoading } = props;
   const dispatch = useDispatch();
-  const { sellerId } = useParams();
+  let { sellerId } = useParams();
   const [shopId, setShopId] = useState(null);
   const [errors, setErros] = useState({});
   const [value, setValue] = useState({});
@@ -46,6 +46,7 @@ const AddBooks = (props) => {
   };
 
   const handleSubmit = (e) => {
+    e.target.reset();
     if (e) e.preventDefault();
     dispatch(addBook(value));
     setLoading(isLoading);
@@ -81,6 +82,7 @@ const AddBooks = (props) => {
               label="Book Name"
               variant="outlined"
               type="text"
+              // value={value.bookName}
               onChange={handleChange}
             />
             <TextField
@@ -90,6 +92,7 @@ const AddBooks = (props) => {
               label="No of Book"
               variant="outlined"
               type="number"
+              // value={value.stockCount}
               onChange={handleChange}
             />
             <Button
