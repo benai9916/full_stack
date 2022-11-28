@@ -13,6 +13,8 @@ const initialState = {
   sellerDetail: undefined,
   sellerBook: undefined,
   cart: [],
+  bookSearch: undefined,
+  sellerSearch: undefined,
 };
 
 export const buyerProfile = createAsyncThunk("buyer/profile", async (id, { rejectWithValue }) => {
@@ -90,6 +92,28 @@ export const getOrder = createAsyncThunk("buyer/getOrder", async (data, { reject
     return response.data;
   } catch (error) {
     let message = error?.response?.data.message || 'unable to place Order'
+    toast.error(message, { id: message.replace(/ /g,'') })
+    return rejectWithValue(message);
+  }
+});
+
+export const searchBooks = createAsyncThunk("search/searchBooks", async (data, { rejectWithValue }) => {
+  try {
+    const response = await ApiService.searchBooks(data);
+    return response.data;
+  } catch (error) {
+    let message = error?.response?.data.message || 'something went wrong'
+    toast.error(message, { id: message.replace(/ /g,'') })
+    return rejectWithValue(message);
+  }
+});
+
+export const searchSellers = createAsyncThunk("search/searchSeller", async (data, { rejectWithValue }) => {
+  try {
+    const response = await ApiService.searchSeller(data);
+    return response.data;
+  } catch (error) {
+    let message = error?.response?.data.message || 'something went wrong'
     toast.error(message, { id: message.replace(/ /g,'') })
     return rejectWithValue(message);
   }
@@ -196,6 +220,36 @@ const buyerSlice = createSlice({
       state.isError = false
     })
     builder.addCase(getOrder.rejected, (state, action) => {
+      state.message = action.payload
+      state.isLoading = false
+      state.isError = true
+    })
+
+    builder.addCase(searchBooks.pending, (state) => {
+      state.isLoading = true
+    })
+    builder.addCase(searchBooks.fulfilled, (state, action) => {
+      state.bookSearch = action.payload.data
+      state.message = action.payload.message  
+      state.isLoading = false
+      state.isError = false
+    })
+    builder.addCase(searchBooks.rejected, (state, action) => {
+      state.message = action.payload
+      state.isLoading = false
+      state.isError = true
+    })
+
+    builder.addCase(searchSellers.pending, (state) => {
+      state.isLoading = true
+    })
+    builder.addCase(searchSellers.fulfilled, (state, action) => {
+      state.sellerSearch = action.payload.data
+      state.message = action.payload.message  
+      state.isLoading = false
+      state.isError = false
+    })
+    builder.addCase(searchSellers.rejected, (state, action) => {
       state.message = action.payload
       state.isLoading = false
       state.isError = true

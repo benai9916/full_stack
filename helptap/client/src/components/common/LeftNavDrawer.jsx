@@ -94,6 +94,7 @@ export const PermanentDrawerLeft = ({ clientType }) => {
               </LeftNavLink>
               <LeftNavLink path={`/sellers`} text="Sellers" />
               <LeftNavLink path={`/buyer/${buyerId}/order`} text="Order" />
+              <LeftNavLink path={`/search`} text="Search" />
             </>
           )}
           {clientType === SELLER && (

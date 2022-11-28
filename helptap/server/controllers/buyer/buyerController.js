@@ -200,6 +200,7 @@ const searchBooks = async (req, res) => {
       select: {
         id: true,
         bookName: true,
+        sellerId: true,
         seller: {
           select: {
             sellerName: true,

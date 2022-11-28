@@ -6,6 +6,7 @@ import Auth from "pages/auth";
 import { SellerRoute } from "pages/seller/SellerRoute";
 import { BuyerRoute } from "pages/buyer/BuyerRoute";
 import SellerHome from "pages/seller/Home";
+import SearchBooksAndSeller from "pages/buyer/SearchBooksAndSeller";
 
 const PageNotFound = lazy(() => import("pages/NotFound"));
 const SellerAuth = lazy(() => import("pages/auth/seller"));
@@ -32,6 +33,7 @@ const App = () => {
          <Toaster toastOptions={{ style: { textAlign: 'center' } }} />
         <Routes>
           <Route path="/" element={<Auth />} />
+         
 
           <Route path="buyer">
             <Route index element={<BuyerAuth />} />
@@ -64,6 +66,10 @@ const App = () => {
             <Route index element={<ListAllSellers />} />
             <Route path=":sellerId" element={<SellerDetail />} />
             <Route path=":sellerId/books" element={<Books />} />
+          </Route>
+
+          <Route path="/search" element={<BuyerRoute />}>
+            <Route index element={<SearchBooksAndSeller />} />
           </Route>
 
           <Route path="*" element={<PageNotFound />} />

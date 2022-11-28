@@ -47,6 +47,12 @@ class ApiService {
   buyer(buyerId) {
     return http.get(`/buyer/${buyerId}`);
   }
+  searchBooks(search) {
+    return http.get(`/search/books?search=${search}`);
+  }
+  searchSeller(search) {
+    return http.get(`/search/seller?search=${search}`);
+  }
 }
 
 export default new ApiService();
