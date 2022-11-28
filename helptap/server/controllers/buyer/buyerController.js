@@ -94,7 +94,7 @@ const placeOrder = async (req, res) => {
         bookDeatil = await prisma.books.update({
           where: { id: Number(id) },
           data: {
-            stockCount: { decrement: quantity },
+            stockCount: { decrement: quantity || 1 },
           },
         });
       }
@@ -124,6 +124,7 @@ const getOrder = async (req, res) => {
       select: {
         order: {
           select: {
+            id:true,
             books: {
               select: {
                 bookName: true,
