@@ -22,7 +22,6 @@
 Base url: `http://127.0.0.1:8000`
 - Post message
     - End point: `/api/v1/chat`
-    - Request:
     - Method: POST
     - Body
     ```
@@ -32,12 +31,10 @@ Base url: `http://127.0.0.1:8000`
     ```
 - Get message
   - End point: `/api/v1/chat`
-  - Request:
   - Method: GET
   
 - Delete Single message
   - End point: `/api/v1/chat/{id}`
-  ### Request:
   - Method: DELETE
   - Body:
   ```
@@ -47,7 +44,6 @@ Base url: `http://127.0.0.1:8000`
   ```
 - Delete all messages
   - End point: `/api/v1/chat`
-  - Request:
   - Method: DELETE
   - Body:
   ```
