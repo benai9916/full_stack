@@ -1,4 +1,4 @@
-# assignment
+# App
 I started this challenge with a piece of white paper, ploting the graph for better clearity and little of research on graph [here](https://www.vogella.com/tutorials/JavaAlgorithmsDijkstra/article.html)
 ##
 <img src="https://github.com/benai9916/full_stack/blob/main/claystack/assets/WhatsApp%20Image%202021-11-25%20at%204.22.57%20PM.jpeg" width="300" height="300">
