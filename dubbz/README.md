@@ -21,15 +21,15 @@
 ### End points
 Base url: `http://127.0.0.1:8000`
 - Post message
-  End point: `/api/v1/chat`
-  Request:
-  Method: POST
-  Body
-  ```
-   {
-      "message": message
-    }
-  ```
+    End point: `/api/v1/chat`
+    Request:
+    Method: POST
+    Body
+    ```
+     {
+        "message": message
+      }
+    ```
 - Get message
   End point: `/api/v1/chat`
   Request:
