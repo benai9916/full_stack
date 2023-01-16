@@ -18,3 +18,41 @@
 2. `0WRRJKT4ZWT01WUIFIW3N1WVG`
 3. `CE90QJJXIFRYR57WJFUL9AANK`
 
+### End points
+Base url: `http://127.0.0.1:8000`
+- Post message
+  End point: `/api/v1/chat`
+  Request:
+  Method: POST
+  Body
+  ```
+   {
+      "message": message
+    }
+  ```
+- Get message
+  End point: `/api/v1/chat`
+  Request:
+  Method: GET
+  
+- Delete Single message
+  End point: `/api/v1/chat/{id}`
+  Request:
+  Method: DELETE
+  Body:
+  ```
+   {
+      "token": secret_token
+    }
+  ```
+ - Delete all messages
+  End point: `/api/v1/chat`
+  Request:
+  Method: DELETE
+  Body:
+  ```
+   {
+      "token": secret_token
+    }
+  ```
+
