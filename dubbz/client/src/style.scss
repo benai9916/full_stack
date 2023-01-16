@@ -1,0 +1,33 @@
+.chat {
+  padding: 40px;
+  h4 {
+    font-size: 32px;
+  }
+  input {
+    margin-right: 20px;
+  }
+  button {
+    padding: 0 10px;
+    cursor: pointer;
+    &:nth-child(3) {
+      color: red;
+      margin-left: 20px;
+    }
+  }
+  .messages {
+    margin-top: 20px;
+    span {
+      margin: 0 10px;
+      &:nth-child(2) {
+        text-decoration: underline;
+        color: blue;
+        cursor: pointer;
+      } 
+    }
+    p {
+      margin-top: 0px;
+      color: darkgray;
+      padding-left: 10px;
+    }
+  }
+}
