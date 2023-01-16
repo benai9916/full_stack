@@ -12,3 +12,9 @@
 - activate env `. .env/bin/activate`
 - install dependencies - `pip3 install -r requirements.txt`
 - Run server - `python3 manage.py runserver`
+
+### Secret Token to delete
+`JBFDTOQAK9C1JI65C25QIVYAW`
+`0WRRJKT4ZWT01WUIFIW3N1WVG`
+`CE90QJJXIFRYR57WJFUL9AANK`
+
